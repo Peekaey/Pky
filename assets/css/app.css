@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@import "../node_modules/daisyui/daisyui.css";
 
 /* Fix Tailwindcss by following few steps 
     1. Follow steps at https://github.com/tailwindlabs/tailwindcss-intellisense/issues/1301#issuecomment-2784572273
