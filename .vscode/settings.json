@@ -1,0 +1,17 @@
+{
+  "tailwindCSS.includeLanguages": {
+    "elixir": "html",
+    "eelixir": "html",
+    "heex": "html",
+    "phoenix-heex": "html"
+  },
+  "files.associations": {
+    "*.heex": "phoenix-heex"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["class[=:]\\s*['\"]([^'\"]*)['\"]", "([^\\s'\"]*)"]
+  ]
+}

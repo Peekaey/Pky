@@ -73,7 +73,10 @@ defmodule Pky.MixProject do
   defp aliases do
     [
       setup: ["deps.get", "assets.setup", "assets.build"],
-      "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
+      "assets.setup": [
+        "tailwind.install --if-missing",
+        "esbuild.install --if-missing",
+        "cmd --cd assets npm install"],
       "assets.build": ["compile", "tailwind pky", "esbuild pky"],
       "assets.deploy": [
         "tailwind pky --minify",
