@@ -17,7 +17,7 @@ defmodule PkyWeb.Router do
   scope "/", PkyWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    get "/", IndexController, :index
   end
 
   # Other scopes may use custom stacks.

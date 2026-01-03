@@ -1,4 +1,4 @@
-defmodule PkyWeb.PageControllerTest do
+defmodule PkyWeb.IndexControllerTest do
   use PkyWeb.ConnCase
 
   test "GET /", %{conn: conn} do
