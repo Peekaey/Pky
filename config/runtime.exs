@@ -51,8 +51,13 @@ miori_api_key =
     raise """
     environment variable MIORI_API_KEY is missing.
     """
+openweather_api_key =
+  System.get_env("OPENWEATHER_API_KEY") ||
+  raise """
+  environment varriable OPENWEATHER_API_KEY is missing
+  """
 
-config :pky, miori_api_key: miori_api_key
+config :pky, miori_api_key: miori_api_key , openweather_api_key: openweather_api_key
 
 if config_env() == :prod do
   # The secret key base is used to sign/encrypt cookies and other secrets.

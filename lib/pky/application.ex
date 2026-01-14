@@ -14,7 +14,10 @@ defmodule Pky.Application do
       # Start a worker by calling: Pky.Worker.start_link(arg)
       # {Pky.Worker, arg},
       # Start to serve requests, typically the last entry
-      PkyWeb.Endpoint
+      PkyWeb.Endpoint,
+      Pky.GenServers.UptimeMonitor,
+      Pky.GenServers.WeatherMonitor
+
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

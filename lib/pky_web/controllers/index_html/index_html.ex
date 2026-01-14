@@ -6,11 +6,11 @@ defmodule PkyWeb.IndexHTML do
   """
   use PkyWeb, :html
 
-  alias Pky.Models.MioriTypes
+  alias Pky.Models.MioriUserData
 
   @typedoc "Assigns for the index template"
   @type index_assigns :: %{
-          :user_data => MioriTypes.user_data() | nil,
+          :user_data => MioriUserData.t() | nil,
           optional(atom()) => any()
         }
 
@@ -23,3 +23,6 @@ defmodule PkyWeb.IndexHTML do
   @spec index(index_assigns()) :: Phoenix.LiveView.Rendered.t()
   embed_templates "./*"
 end
+
+# TODO
+# See if normal MVC files are still needed as we moved to LiveView

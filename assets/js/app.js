@@ -25,11 +25,41 @@ import {LiveSocket} from "phoenix_live_view"
 import {hooks as colocatedHooks} from "phoenix-colocated/pky"
 import topbar from "../vendor/topbar"
 
+
+// Hook to display Date/Time on client side using JS
+let Hooks = {}
+Hooks.LocalTime = {
+  mounted() {
+    this.updateTime()
+    this.interval = setInterval(() => this.updateTime(), 1000)
+  },
+  destroyed() {
+    clearInterval(this.interval)
+  },
+  updateTime() {
+    const now = new Date()
+    
+    this.el.innerText = now.toLocaleString('en-AU', { 
+      timeZone: 'Australia/Sydney',
+      
+      weekday: 'short',
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+
+      hour: '2-digit', 
+      minute: '2-digit', 
+      second: '2-digit' 
+    })
+  }
+}
+
+
 const csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 const liveSocket = new LiveSocket("/live", Socket, {
   longPollFallbackMs: 2500,
   params: {_csrf_token: csrfToken},
-  hooks: {...colocatedHooks},
+  hooks: {...colocatedHooks, ...Hooks},
 })
 
 // Show progress bar on live navigation and form submits
