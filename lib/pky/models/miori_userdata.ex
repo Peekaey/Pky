@@ -303,7 +303,7 @@ defmodule Pky.Models.MioriUserData do
       use Ecto.Schema
       import Ecto.Changeset
       @primary_key false
-      @derive {Jason.Encoder, only: [:appid, :name, :playtime_2weeks_minutes, :playtime_forever_minutes, :img_icon_url, :img_header_url]}
+      @derive {Jason.Encoder, only: [:appid, :name, :playtime_2weeks_minutes, :playtime_forever_minutes, :img_icon_url, :img_header_url, :store_url]}
       embedded_schema do
         field :appid, :integer
         field :name, :string
@@ -311,8 +311,9 @@ defmodule Pky.Models.MioriUserData do
         field :playtime_forever_minutes, :integer
         field :img_icon_url, :string
         field :img_header_url, :string
+        field :store_url, :string
       end
-      def changeset(s, p), do: cast(s, p, [:appid, :name, :playtime_2weeks_minutes, :playtime_forever_minutes, :img_icon_url, :img_header_url])
+      def changeset(s, p), do: cast(s, p, [:appid, :name, :playtime_2weeks_minutes, :playtime_forever_minutes, :img_icon_url, :img_header_url, :store_url])
     end
   end
 

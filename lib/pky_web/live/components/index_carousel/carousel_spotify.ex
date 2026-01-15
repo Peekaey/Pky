@@ -95,7 +95,11 @@ defmodule PkyWeb.Live.Components.IndexCarousel.CarouselSpotify do
 
   def recently_played(assigns) do
     ~H"""
-    <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-3 w-full max-w-sm transition-all hover:bg-gray-800/50">
+    <.link
+    href={@recently_played.track_url}
+    class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-3 w-full max-w-sm transition-all hover:bg-gray-800/50"
+    >
+    <div class="">
       <div class="flex gap-3">
         <div class="relative flex-shrink-0 w-16 h-16">
           <img
@@ -133,6 +137,7 @@ defmodule PkyWeb.Live.Components.IndexCarousel.CarouselSpotify do
         </div>
       </div>
     </div>
+    </.link>
     """
   end
 

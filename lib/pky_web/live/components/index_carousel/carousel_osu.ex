@@ -58,7 +58,7 @@ defmodule PkyWeb.Live.Components.IndexCarousel.CarouselOsu do
     <div class="flex flex-col items-center justify-center w-full">
       <%= if @user_data && @user_data.osu do %>
         <%= if length(@paginated_beatmaps) > 0 do %>
-        
+
           <div class="flex flex-col gap-3 w-full items-center min-h-[350px]">
             <%= for recent_beatmap <- @paginated_beatmaps do %>
               <.activity beatmap={recent_beatmap} />
@@ -101,7 +101,11 @@ defmodule PkyWeb.Live.Components.IndexCarousel.CarouselOsu do
 
   def activity(assigns) do
     ~H"""
-    <div class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-3 w-full max-w-sm transition-all hover:bg-gray-800/50">
+    <.link
+    href={@beatmap.beatmap.url}
+    class="bg-gray-800/30 border border-gray-700/50 rounded-lg p-3 w-full max-w-sm transition-all hover:bg-gray-800/50"
+    >
+    <div class="">
       <div class="flex gap-3">
         <div class="relative flex-shrink-0 w-16 h-16">
           <img
@@ -140,6 +144,7 @@ defmodule PkyWeb.Live.Components.IndexCarousel.CarouselOsu do
         </div>
       </div>
     </div>
+    </.link>
     """
   end
 
