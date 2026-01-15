@@ -28,6 +28,7 @@ import topbar from "../vendor/topbar"
 
 // Hook to display Date/Time on client side using JS
 let Hooks = {}
+
 Hooks.LocalTime = {
   mounted() {
     this.updateTime()
@@ -51,6 +52,56 @@ Hooks.LocalTime = {
       minute: '2-digit', 
       second: '2-digit' 
     })
+  }
+}
+
+// Hook for reporting client side cursor location back to server
+Hooks.CursorTracking = {
+  mounted() {
+    // Throttle the event to run at most once every 30ms
+    this.handleMouseMove = this.throttle((e) => {
+      // Calculate 0-100% relative to the element's dimensions
+      const x = (e.pageX / this.el.offsetWidth) * 100;
+      const y = (e.pageY / this.el.offsetHeight) * 100;
+
+      this.pushEvent("cursor-move", { x, y });
+    }, 30);
+
+    // Add listener to the window so we track movement even outside the specific div
+    window.addEventListener("mousemove", this.handleMouseMove);
+
+    this.el.addEventListener("mousedown", (e) => {
+      const x = (e.pageX / this.el.offsetWidth) * 100;
+      const y = (e.pageY / this.el.offsetHeight) * 100;
+
+      this.pushEvent("cursor-click", { x, y });
+    });
+  },
+
+  destroyed() {
+    window.removeEventListener("mousemove", this.handleMouseMove);
+  },
+
+  // Limit how often we send data to the server
+  throttle(func, limit) {
+    let lastFunc;
+    let lastRan;
+    return function() {
+      const context = this;
+      const args = arguments;
+      if (!lastRan) {
+        func.apply(context, args);
+        lastRan = Date.now();
+      } else {
+        clearTimeout(lastFunc);
+        lastFunc = setTimeout(function() {
+          if ((Date.now() - lastRan) >= limit) {
+            func.apply(context, args);
+            lastRan = Date.now();
+          }
+        }, limit - (Date.now() - lastRan));
+      }
+    }
   }
 }
 
