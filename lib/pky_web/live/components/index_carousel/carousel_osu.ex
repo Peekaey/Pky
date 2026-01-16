@@ -59,7 +59,7 @@ defmodule PkyWeb.Live.Components.IndexCarousel.CarouselOsu do
       <%= if @user_data && @user_data.osu do %>
         <%= if length(@paginated_beatmaps) > 0 do %>
 
-          <div class="flex flex-col gap-3 w-full items-center min-h-[350px]">
+          <div class="flex flex-col gap-3 w-full justify-center items-center min-h-[350px]">
             <%= for recent_beatmap <- @paginated_beatmaps do %>
               <.activity beatmap={recent_beatmap} />
             <% end %>

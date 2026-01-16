@@ -3,6 +3,7 @@ defmodule PkyWeb.IndexLive do
   LiveView for the index/home page.
   """
   # TODO - Fix up div Ids
+alias PkyWeb.Live.Components.Slices.TechnologiesSlice
   use PkyWeb, :live_view
 
   use Phoenix.VerifiedRoutes,
@@ -17,9 +18,10 @@ defmodule PkyWeb.IndexLive do
   # Component Aliases
   alias PkyWeb.Live.Components.LoadingComponent
   alias PkyWeb.Live.Components.CarouselComponent
-  alias PkyWeb.Live.Components.UptimeWidget
-  alias PkyWeb.Live.Components.AnilistWidget
-  alias PkyWeb.Live.Components.WeatherWidget
+  alias PkyWeb.Live.Components.Widgets.UptimeWidget
+  alias PkyWeb.Live.Components.Widgets.AnilistWidget
+  alias PkyWeb.Live.Components.Widgets.WeatherWidget
+  alias PkyWeb.Live.Components.LinksSlice
   import PkyWeb.Live.Components.SvgComponents
 
   # GenServers for live updating of components
@@ -284,11 +286,14 @@ defmodule PkyWeb.IndexLive do
                   </div>
 
                   <div
-                    id="index-centre-container-technologies"
-                    class="mt-6 flex flex-col items-center"
-                  >
+                    id="index-centre-container-technologies" class="mt-6 flex flex-col items-center">
                     <h3 class="text-xl font-bold mb-4">Technologies</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+                    <div class="grid grid-cols-1  gap-4">
+                    <.live_component
+                    module={TechnologiesSlice}
+                    id="technologies"
+                    />
+                    </div>
                   </div>
 
                   <div
@@ -297,65 +302,11 @@ defmodule PkyWeb.IndexLive do
                   >
                     <h3 class="text-xl font-bold">Links</h3>
                     <div id="index-centre-container-footer-links" class="mt-5 mb-5">
-                      <%= if @user_data.discord do %>
-                        <a
-                          id="discord-link"
-                          href={"https://discord.com/users/#{@user_data.discord.uuid}"}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <.discord_logo class="inline h-8 mr-2 text-white" />
-                        </a>
-                      <% end %>
+                      <.live_component
+                      module={LinksSlice}
+                      id="social-links"
+                      />
 
-                      <a
-                        id="github-link"
-                        href="https://github.com/Peekaey"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <.github_logo class="inline h-10 mr-2 text-white" />
-                      </a>
-
-                      <a
-                        id="statsfm-link"
-                        href="https://stats.fm/peekaey"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <.statsfm_logo class="inline h-10 mr-2 text-white" />
-                      </a>
-
-                      <%= if @user_data.steam do %>
-                        <a
-                          id="steam-link"
-                          href={@user_data.steam.profile_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <.steam_logo class="inline h-10 mr-2 text-white" />
-                        </a>
-                      <% end %>
-
-                      <a
-                        id="anilist-link"
-                        href="https://anilist.co/user/Peekaey/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <.anilist_logo class="inline h-10 mr-2 text-white" />
-                      </a>
-
-                      <%= if @user_data.osu do %>
-                        <a
-                          id="osu-link"
-                          href={"https://osu.ppy.sh/users/#{@user_data.osu.id}"}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <.osu_logo class="inline h-10 mr-2 text-white" />
-                        </a>
-                      <% end %>
                     </div>
                   </div>
                 </div>

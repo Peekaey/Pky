@@ -1,4 +1,4 @@
-defmodule PkyWeb.Live.Components.UptimeWidget do
+defmodule PkyWeb.Live.Components.Widgets.UptimeWidget do
   @moduledoc """
   Component to display real-time service uptime status.
   """

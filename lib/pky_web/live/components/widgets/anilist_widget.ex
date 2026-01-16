@@ -1,4 +1,4 @@
-defmodule PkyWeb.Live.Components.AnilistWidget do
+defmodule PkyWeb.Live.Components.Widgets.AnilistWidget do
   use PkyWeb, :live_component
 
   @impl true

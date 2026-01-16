@@ -59,7 +59,7 @@ defmodule PkyWeb.Live.Components.IndexCarousel.CarouselSteam do
 
         <%= if length(@paginated_games) > 0 do %>
 
-          <div class="flex flex-col gap-3 w-full items-center min-h-[350px]">
+          <div class="flex flex-col gap-3 w-full items-center justify-center min-h-[350px]">
             <%= for game <- @paginated_games do %>
               <.game_card game={game} />
             <% end %>

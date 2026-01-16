@@ -1,4 +1,4 @@
-defmodule PkyWeb.Live.Components.WeatherWidget do
+defmodule PkyWeb.Live.Components.Widgets.WeatherWidget do
   @moduledoc """
   Component for displaying live weather data for Sydney city from OpenWeather
   """

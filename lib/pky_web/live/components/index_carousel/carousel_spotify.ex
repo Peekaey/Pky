@@ -53,7 +53,7 @@ defmodule PkyWeb.Live.Components.IndexCarousel.CarouselSpotify do
     <div class="flex flex-col items-center justify-center w-full">
       <%= if @user_data && @user_data.spotify do %>
         <%= if length(@paginated_played) > 0 do %>
-          <div class="flex flex-col gap-3 w-full items-center min-h-[350px]">
+          <div class="flex flex-col gap-3 w-full items-center justify-center min-h-[350px]">
             <%= for recent_played <- @paginated_played do %>
               <.recently_played recently_played={recent_played} />
             <% end %>
