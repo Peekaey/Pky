@@ -32,12 +32,12 @@ defmodule Pky.GenServers.UptimeMonitor do
 
   @impl true
   def handle_info(:check_uptime, state) do
-
     sites = monitored_sites()
 
-    results = Enum.map(sites, fn site ->
-      UptimeMonitorBusinessService.check_site(site)
-    end)
+    results =
+      Enum.map(sites, fn site ->
+        UptimeMonitorBusinessService.check_site(site)
+      end)
 
     Logger.info("Uptime check completed for #{length(results)} sites.")
 
@@ -52,9 +52,9 @@ defmodule Pky.GenServers.UptimeMonitor do
 
   defp monitored_sites do
     [
-      MonitoredSite.new("https://forgejo.refrain.app", "forgejo @ refrain"),
-      MonitoredSite.new("https://plex.refrain.app", "plex @ refrain"),
-      MonitoredSite.new("https://api.miori.dev", "api @ miori"),
+      MonitoredSite.new("https://plex.refrain.app", "plex @ miyuki"),
+      MonitoredSite.new("https://forgejo.refrain.app", "forgejo @ miyuki"),
+      MonitoredSite.new("https://api.miori.dev", "api @ miori")
     ]
   end
 end
