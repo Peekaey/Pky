@@ -8,10 +8,11 @@ defmodule PkyWeb.Live.Components.CarouselComponent do
     CarouselDiscord,
     CarouselSteam,
     CarouselOsu,
-    CarouselSpotify
+    CarouselSpotify,
+    CarouselAnilist
   }
 
-  @tabs ["activities", "spotify", "steam", "osu"]
+  @tabs ["activities", "spotify", "steam", "osu", "anilist"]
 
   @impl true
   def update(assigns, socket) do
@@ -109,6 +110,14 @@ defmodule PkyWeb.Live.Components.CarouselComponent do
                 <.live_component
                   module={CarouselOsu}
                   id="carousel-osu"
+                  user_data={@user_data}
+                />
+              </div>
+            <% "anilist" -> %>
+              <div class="w-full">
+                <.live_component
+                  module={CarouselAnilist}
+                  id="carousel-anilist"
                   user_data={@user_data}
                 />
               </div>

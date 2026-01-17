@@ -178,7 +178,7 @@ alias PkyWeb.Live.Components.Slices.TechnologiesSlice
   def handle_info(:clean_inactive_cursors, socket) do
     now = System.system_time(:millisecond)
     # Time in ms before we consider a user disconnected
-    timeout = 10_000
+    timeout = 60_000
 
     active_cursors =
       Map.filter(socket.assigns.cursors, fn {_id, user} ->

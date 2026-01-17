@@ -8,8 +8,8 @@ defmodule PkyWeb.Live.Components.Slices.TechnologiesSlice do
   @impl true
   def render(assigns) do
     ~H"""
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-white">
-      <div class="flex flex-col items-center text-center rounded-lg pg-4  bg-gray-800/30 border border-[#1DB954]/20 pb-2">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border-gray-700/50  text-white">
+      <div class="flex flex-col items-center text-center rounded-lg pg-4 border-gray-700/50  bg-gray-800/30 border pb-2">
         <span class="block text-xs font-bold text-gray-400 mb-3 uppercase">Languages</span>
         <div class="flex flex-wrap gap-3">
           <.csharp_logo class="h-6" />
@@ -19,7 +19,7 @@ defmodule PkyWeb.Live.Components.Slices.TechnologiesSlice do
         </div>
       </div>
 
-      <div class="flex flex-col items-center text-center bg-gray-800/30 border-[#1DB954]/20 rounded-lg border pg-4 pb-2 pl-2 pr-2">
+      <div class="flex flex-col items-center text-center bg-gray-800/30 border-gray-700/50  rounded-lg border pg-4 pb-2 pl-2 pr-2">
         <span class="block text-xs font-bold text-gray-400 mb-3 uppercase">Stack</span>
         <div class="flex flex-wrap gap-3">
           <.dotnet_logo class="h-7" />
@@ -30,7 +30,7 @@ defmodule PkyWeb.Live.Components.Slices.TechnologiesSlice do
         </div>
       </div>
 
-      <div class="flex flex-col items-center text-center md:col-span-2 rounded-lg pg-4 bg-gray-800/30 border border-[#1DB954]/20  pb-2">
+      <div class="flex flex-col items-center text-center md:col-span-2 border-gray-700/50 rounded-lg pg-4 bg-gray-800/30 border  pb-2">
         <span class="block text-xs font-bold text-gray-400 mb-3 uppercase ">Infrastructure & Ops</span>
         <div class="flex flex-wrap gap-3">
           <.linux_logo class="h-6" />

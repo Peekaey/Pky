@@ -129,7 +129,7 @@ defmodule PkyWeb.Live.Components.IndexCarousel.CarouselDiscord do
 
   def spotify_activity(assigns) do
     ~H"""
-    <div class="bg-gray-800/30 border border-[#1DB954]/20 rounded-lg p-3 w-full max-w-sm">
+    <div class="bg-gray-800/30 border border-gray-700/50  rounded-lg p-3 w-full max-w-sm">
       <div class="flex gap-3">
         <div class="relative flex-shrink-0 w-16 h-16">
           <img src={@activity.large_image} class="w-full h-full rounded shadow-md object-cover" />
