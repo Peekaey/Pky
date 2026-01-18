@@ -59,6 +59,15 @@ openweather_api_key =
 
 config :pky, miori_api_key: miori_api_key , openweather_api_key: openweather_api_key
 
+port = String.to_integer(System.get_env("PORT") || "4000")
+
+config :pky, PkyWeb.Endpoint,
+  http: [
+    # Bind to 0.0.0.0 so it works inside Docker and allows LAN access
+    ip: {0, 0, 0, 0},
+    port: port
+  ]
+
 if config_env() == :prod do
   # The secret key base is used to sign/encrypt cookies and other secrets.
   # A default value is used in config/dev.exs and config/test.exs but you
@@ -74,7 +83,6 @@ if config_env() == :prod do
 
 
   host = System.get_env("PHX_HOST") || "example.com"
-  port = String.to_integer(System.get_env("PORT") || "4000")
 
   config :pky, PkyWeb.Endpoint,
     url: [host: host, port: 443, scheme: "https"],
