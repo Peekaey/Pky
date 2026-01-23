@@ -100,7 +100,7 @@ end
       href={@activity.url}
       target="_blank"
       rel="noopener noreferrer"
-      class="block bg-gray-800/30 border border-gray-700/50 rounded-lg p-3 w-full max-w-sm transition-all hover:bg-gray-800/50 hover:border-blue-500/30 group"
+      class="block bg-gray-800/30 border border-gray-700/50 rounded-lg p-3 w-full max-w-sm transition-all hover:bg-gray-800/50"
     >
       <div class="flex gap-3 items-center">
         <div class="relative flex-shrink-0 w-16 h-16">
@@ -117,7 +117,7 @@ end
           </span>
 
           <div class="flex flex-col min-w-0 w-full leading-tight">
-            <div :if={@activity.progress} class="text-[10px] font-mono uppercase">
+            <div :if={@activity.progress && @activity.progress != "0"} class="text-[10px] font-mono uppercase">
               <span class="text-gray-500">{@activity.progress}</span>
               <span class="text-gray-500 lowercase">of</span>
             </div>

@@ -128,8 +128,8 @@ defmodule PkyWeb.Live.Components.IndexCarousel.CarouselOsu do
             by <span class="text-gray-300">{@beatmap.beatmapset.artist}</span>
           </div>
 
-          <div class="flex items-center gap-3 mt-1 text-[10px] font-mono text-gray-400">
-            <span class="flex items-center gap-1 text-gray-300 font-bold">
+          <div class="flex items-center gap-3 mt-1 text-[10px] font-mono text-gray-400 ml-6">
+            <span class="flex items-center gap-1font-bold">
               <span>★</span> {format_number(@beatmap.beatmap.difficulty_rating)}
             </span>
             <span class="w-px h-3 bg-gray-700"></span>

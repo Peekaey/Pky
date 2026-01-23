@@ -99,7 +99,7 @@ defmodule PkyWeb.Live.Components.IndexCarousel.CarouselSteam do
       ~H"""
       <.link
         href={@game.store_url}
-        class="block bg-gray-800/50 rounded-lg p-3 w-full max-w-sm border border-gray-700 hover:bg-gray-700/50 transition-colors"
+        class="block bg-gray-800/30 rounded-lg p-3 w-full max-w-sm border border-gray-700/50 transition-all hover:bg-gray-800/50"
       >
         <div class="flex gap-4">
 
@@ -116,7 +116,7 @@ defmodule PkyWeb.Live.Components.IndexCarousel.CarouselSteam do
 
             <div class="flex flex-col gap-0.5">
               <div class="flex items-center justify-between text-xs">
-                <span class="text-gray-400">Hours Last 2 Weeks:</span>
+                <span class="text-gray-400">Last 2 Weeks:</span>
                 <span class="text-gray-250 font-mono"><%= format_hours(@game.playtime_2weeks_minutes) %></span>
               </div>
 
