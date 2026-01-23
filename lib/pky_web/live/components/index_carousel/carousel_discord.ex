@@ -139,7 +139,9 @@ defmodule PkyWeb.Live.Components.IndexCarousel.CarouselDiscord do
             Listening on Spotify
           </span>
           <span class="text-sm text-white font-bold truncate">{@activity.details}</span>
-          <span class="text-xs text-gray-300 truncate">by {@activity.state}</span>
+          <div class="text-xs text-gray-400 truncate">
+            by <span class="text-gray-300">{@activity.state}</span>
+          </div>
           <span class="text-xs text-gray-400 truncate text-[10px]">on {@activity.large_text}</span>
         </div>
       </div>

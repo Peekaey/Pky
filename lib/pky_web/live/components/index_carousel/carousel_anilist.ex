@@ -118,8 +118,8 @@ end
 
           <div class="flex flex-col min-w-0 w-full leading-tight">
             <div :if={@activity.progress && @activity.progress != "0"} class="text-[10px] font-mono uppercase">
-              <span class="text-gray-500">{@activity.progress}</span>
-              <span class="text-gray-500 lowercase">of</span>
+              <span class="text-gray-400">{@activity.progress}</span>
+              <span class="text-gray-400 lowercase">of</span>
             </div>
 
             <div class="text-sm text-white font-bold truncate">
