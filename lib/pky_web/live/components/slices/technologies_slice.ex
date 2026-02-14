@@ -15,15 +15,18 @@ defmodule PkyWeb.Live.Components.Slices.TechnologiesSlice do
           <a href="https://learn.microsoft.com/en-us/dotnet/csharp/">
             <.csharp_logo class="h-6" />
           </a>
-          <a href="https://elixir-lang.org/">
-            <.elixir_logo class="h-6" />
-          </a>
           <a href="https://www.typescriptlang.org/">
             <.typescript_logo class="h-6" />
           </a>
-          <a href="https://rust-lang.org/">
-            <.rust_logo class="h-6" />
+          <a href="https://elixir-lang.org/">
+            <.elixir_logo class="h-6" />
           </a>
+          <a href="https://www.python.org/">
+            <.python_logo class="h-6" />
+          </a>
+          <%!-- <a href="https://rust-lang.org/">
+            <.rust_logo class="h-6" />
+          </a> --%>
         </div>
       </div>
 
@@ -33,11 +36,11 @@ defmodule PkyWeb.Live.Components.Slices.TechnologiesSlice do
           <a href="https://dotnet.microsoft.com/en-us/">
             <.dotnet_logo class="h-7" />
           </a>
-          <a href="https://www.phoenixframework.org/">
-            <.phoenix_logo class="h-7" />
-          </a>
           <a href="https://react.dev/">
             <.react_logo class="h-7" />
+          </a>
+          <a href="https://www.phoenixframework.org/">
+            <.phoenix_logo class="h-7" />
           </a>
           <%!-- <a href="https://nodejs.org/en"/>
           <.nodejs_logo class="h-7" />
