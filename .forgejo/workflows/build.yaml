@@ -35,4 +35,4 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.IMAGE }}:latest
             ${{ env.REGISTRY }}/${{ env.IMAGE }}:${{ steps.meta.outputs.sha_short }}
           labels: |
-            org.opencontainers.image.source=https://forgejo.sakurajimalabs.io/Peekaey/pky
+            org.opencontainers.image.source=https://forgejo.sakurajimalabs.io/sakurajimalabs/pky
